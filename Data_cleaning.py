@@ -20,8 +20,10 @@ def audit_report(filename):
     print(df.duplicated().sum())
     print ("-----------------Memory Taken By Dataframe-------------------") 
     print((df.memory_usage(deep=True).sum())/1048576, "MB" )
-    print ("-----------------Warning-------------------")
-    print(df.count().idxmin())
+    print ("-----------------------Warning-------------------------------")
+    print("Max missing values are in column:",df.count().idxmin())
+    print ("-------------------Range of columns--------------------------")
+    print(df.describe().loc[['max','min']])
     return;
 
 audit_report("C:/Users/Zohran/Documents/R/sec_b.xlsx")
