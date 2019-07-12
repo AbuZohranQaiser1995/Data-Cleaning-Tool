@@ -24,6 +24,11 @@ def audit_report(filename):
     print("Max missing values are in column:",df.count().idxmin())
     print ("-------------------Range of columns--------------------------")
     print(df.describe().loc[['max','min']])
+    print("--------------------Unique Classes in columns-----------------")
+    for i in df:
+        if(df[i].dtypes=="object"):
+            print( df[i].unique())
+        
     return;
 
 audit_report("C:/Users/Zohran/Documents/R/sec_b.xlsx")
